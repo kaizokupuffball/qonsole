@@ -22,26 +22,46 @@ class Qonsole extends Model
     {
         return response()->json([
             'success' => true,
-            'message' => 'Your IP adress is: ' . Request::ip(),
+            'message' => 'Your IP adress is:',
+            'result' =>  Request::ip(),
         ]);
     }
 
     /**
      * This example shows the use of arguments
-     * Just a simple binary to hex command
-     * This command is run by the command: hex "something you want to convert to hex"
+     * Just a simple base64 to string command
+     * This command is run by the command: base64decode "base64 string here"
      * Remember to double quotes for the string you want to convert!
      * All arguments must be enclodes in double quote
      *
      * @param String $string
      * @return void
      */
-    static public function hex($string) 
+    static public function base64decode($base64) 
     {
         return response()->json([
             'success' => true,
-            'message' => bin2hex($string),
+            'message' => 'Base64 decoded string:',
+            'result' => base64_decode($base64)
         ]);
     }
 
+    /**
+     * This example shows the use of arguments
+     * Just a simple string to base64 command
+     * This command is run by the command: base64encode "string here"
+     * Remember to double quotes for the string you want to convert!
+     * All arguments must be enclodes in double quote
+     *
+     * @param String $string
+     * @return void
+     */
+    static public function base64encode($string) 
+    {
+        return response()->json([
+            'success' => true,
+            'message' => 'Base64 encoded string:',
+            'result' => base64_encode($string)
+        ]);
+    }
 }

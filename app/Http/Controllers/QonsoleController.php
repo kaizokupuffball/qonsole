@@ -48,7 +48,8 @@ class QonsoleController extends Controller
             // Command not found
             return response()->json([
                 'success' => false,
-                'message' => 'Command "'. $command .'" not found.'
+                'message' => 'Command not found:',
+                'result' => $command
             ]);
 
         }

@@ -8,3 +8,5 @@ The app uses Laravel in the back and Vue in the front.
 To get this project up 'n' running just download it and start serving it.
 
 Also check out `resources\js\vue` to change how the app is shown.
+
+![qW2VizYRTe](https://i.imgur.com/9q8TEIe.gif)
