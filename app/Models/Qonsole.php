@@ -37,13 +37,21 @@ class Qonsole extends Model
      * @param String $string
      * @return void
      */
-    static public function base64decode($base64) 
+    static public function base64decode($string) 
     {
-        return response()->json([
-            'success' => true,
-            'message' => 'Base64 decoded string:',
-            'result' => base64_decode($base64)
-        ]);
+        if ($decoded = base64_decode($string, true)) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Base64 decoded string:',
+                'result' => $decoded
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Not a valid base64 encoded string',
+                'result' => ''
+            ]);
+        }
     }
 
     /**

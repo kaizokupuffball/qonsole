@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{command}', [QonsoleController::class, 'run'])->middleware('api');
+Route::post('/run', [QonsoleController::class, 'run'])->middleware('api');

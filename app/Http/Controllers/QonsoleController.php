@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class QonsoleController extends Controller
 {
     /**
@@ -10,12 +12,13 @@ class QonsoleController extends Controller
      * @param String $command
      * @return void
      */
-    public function run($command) 
+    public function run(Request $request) 
     {
+
         // Split the command up into pieces (command and arguments)
         // $tmp[0] is the command
         // Everything above the first index is a argument
-        $tmp = array_filter(explode('"', $command), function ($elem) {
+        $tmp = array_filter(explode('"', $request->command), function ($elem) {
             return is_string($elem) && '' !== trim($elem);
         });
 

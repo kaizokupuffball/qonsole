@@ -41,8 +41,8 @@ export default {
             }
 
             // Issue a command from the API
-            var baseApiUrl = '/api/';
-            axios.get(baseApiUrl+this.command)
+            var apiUrl = '/api/run';
+            axios.post(apiUrl, { command: this.command })
             .then((resp) => {
 
                 // Update the output
